@@ -1,0 +1,168 @@
+/**
+ * @name StarryNight
+ * @version 1.0.0
+ * @description A starry night theme for Discord, inspired by Spicetify's theme
+ * @source https://github.com/yourname/discord-starry-night
+ * @author YourName
+ */
+
+/* Import base theme if needed */
+@import url('https://discord-custom-covers.github.io/usrbg/dist/usrbg.css');
+
+/* Theme Variables */
+:root {
+  /* Base colors from original theme */
+  --background-primary: #000000;
+  --background-secondary: #152238;
+  --background-secondary-alt: #142b44;
+  --background-tertiary: #000000;
+  
+  --text-normal: #FFFFFF;
+  --text-muted: #ADB5BD;
+  --header-primary: #FFFFFF;
+  --header-secondary: #ADB5BD;
+  
+  --interactive-normal: #FFF3C4;
+  --interactive-hover: #FFF3C4;
+  --interactive-active: #FFF3C4;
+  --interactive-muted: #7F7F7F;
+  
+  /* Custom theme variables */
+  --star-color: #FFFFFF;
+  --star-glow: rgba(255, 255, 255, 0.8);
+  --shooting-star: #FFFFFF;
+  --shooting-star-glow: rgba(255, 255, 255, 0.1);
+}
+
+/* Main background */
+.app-2rEoOp {
+  background: linear-gradient(180deg, var(--background-tertiary) 0%, var(--background-secondary-alt) 100%);
+}
+
+/* Transparent backgrounds */
+.container-1D34oG,
+.container-3w7J-x,
+.panels-j1Uci_,
+.chat-3bRxxu,
+.members-1998pB,
+.scroller-1Bvpku {
+  background-color: transparent !important;
+}
+
+/* Channel list and member list background */
+.sidebar-2K8pFh,
+.container-3w7J-x,
+.members-1998pB {
+  background-color: rgba(21, 34, 56, 0.3) !important;
+}
+
+/* Stars container */
+.app-2rEoOp::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Star animation keyframes */
+@keyframes twinkle1 {
+  0% { box-shadow: 0 0 8px 2px var(--star-glow); }
+  20% { box-shadow: 0 0 0 0 var(--star-glow); }
+  40% { box-shadow: 0 0 0 0 var(--star-glow); }
+  60% { box-shadow: 0 0 0 0 var(--star-glow); }
+  80% { box-shadow: 0 0 8px 2px var(--star-glow); }
+  100% { box-shadow: 0 0 8px 2px var(--star-glow); }
+}
+
+/* Shooting star animation */
+@keyframes shootingstar {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-1500px);
+    opacity: 0;
+  }
+}
+
+/* Star generation */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Message area customization */
+.messageContent-2qWWxC {
+  color: var(--text-normal);
+}
+
+/* Channel name customization */
+.name-23GUGE {
+  color: var(--text-normal);
+}
+
+/* Server list customization */
+.wrapper-1BJsBx {
+  background-color: rgba(21, 34, 56, 0.5);
+}
+
+/* Button customization */
+.button-1YfofB {
+  background-color: var(--interactive-normal);
+  color: var(--background-primary);
+}
+
+.button-1YfofB:hover {
+  background-color: var(--interactive-hover);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--interactive-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--interactive-normal);
+}
+
+/* Additional theme variants */
+.theme-dark {
+  /* Galaxy theme colors */
+  --background-primary: #000000;
+  --background-secondary: #9f45b0;
+  --background-secondary-alt: #b133c9;
+  --background-tertiary: #00076f;
+}
+
+/* Add stars via JavaScript */
+:root::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
